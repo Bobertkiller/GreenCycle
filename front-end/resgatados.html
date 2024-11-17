@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produtos Resgatados</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <button class="back-button" onclick="navigateToHub()">⬅ Hub</button>
+            <h2>Seus Produtos Resgatados</h2>
+        </div>
+
+        <!-- Container dos produtos resgatados -->
+        <div id="redeemed-products-container" class="redeemed-products-container">
+            <!-- Produtos resgatados vão ser carregados aqui pelo JS -->
+        </div>
+    </div>
+
+    <!-- Template for redeemed products -->
+    <script type="text/template" id="redeemed-product-template">
+        <div class="redeemed-card">
+            <div class="card-wrapper">
+                <div class="flipper">
+                    <!-- Front of card -->
+                    <div class="card-front">
+                        <img src="" alt="Produto" class="redeemed-product-image">
+                        <h2 class="redeemed-product-name"></h2>
+                        <p class="redeemed-product-description"></p>
+                        <p class="redeemed-product-resgatado"></p>
+                    </div>
+                    <!-- Back of card -->
+                    <div class="card-back">
+                        <div class="code-container">
+                            <p class="redeemed-product-code">Código: <span class="product-code"></span></p>
+                            <button class="copy-code-btn">Copiar Código</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </script>
+
+    <script src="js/resgatados.js" defer></script>
+
+    <!-- Função JavaScript para copiar o código -->
+    <script>
+        function copyCode(event) {
+            const code = event.target.previousElementSibling.innerText.split(': ')[1];
+            navigator.clipboard.writeText(code).then(() => {
+                alert('Código copiado: ' + code);
+            });
+        }
+    </script>
+
+    <script src="js/theme.js"></script>
+</body>
+</html>
+

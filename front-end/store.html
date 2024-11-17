@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Loja de Pontos</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="container">
+    <button class="back-button" onclick="navigateToHub()">⬅ Hub</button>
+    <h1>Loja de Pontos</h1>
+
+    <!-- Saldo do usuário -->
+    <p id="user-points">Saldo: Carregando...</p>
+
+    <!-- Grid para produtos -->
+    <div id="product-list" class="product-grid"></div>
+  </div>
+
+  <script>
+    function navigateToHub() {
+      window.location.href = 'index.html';
+    }
+  </script>
+  <script src="js/main.js"></script>
+  <script src="js/theme.js"></script>
+</body>
+</html>

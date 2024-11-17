@@ -1,0 +1,28 @@
+project-root/
+├── back-end/                     # Pasta contendo o backend do projeto
+│   ├── app.py                    # Arquivo principal do backend Flask
+│   └── instance/
+│       └── store.db              # Banco de dados SQLite
+├── frontend/                     # Pasta contendo o frontend do projeto
+│   ├── index.html                # Página principal do hub
+│   ├── generate_code.html        # Página para gerar código e QR code
+│   ├── resgatados.html           # Página de produtos resgatados
+│   ├── login.html                # Página de login
+│   ├── signup.html               # Página de cadastro
+│   ├── store.html                # Página da loja de produtos
+│   ├── profile.html              # Página de perfil do usuário
+│   ├── map.html                  # Página com o mapa
+│   ├── assets/
+│   │   └── img/                  # Pasta com imagens dos produtos
+│   │       ├── gift_card.png
+│   │       ├── logo_mercado.png
+│   │       └── (outras imagens)
+│   ├── js/
+│   │   ├── main.js               # JavaScript principal para funcionalidades gerais
+│   │   ├── login.js              # JavaScript para a página de login
+│   │   ├── signup.js             # JavaScript para a página de cadastro
+│   │   ├── QRcode.js             # JavaScript para a funcionalidade de geração de QR code
+│   │   ├── (outros javascripts)
+│   └── css/
+│       ├── style.css             # CSS principal do site
+│       └── map.css               # CSS específico para a página de mapa

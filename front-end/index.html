@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GreenCycle</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://unpkg.com/intro.js/minified/introjs.min.css">
+  <script>
+    if (!localStorage.getItem('token')) {
+      window.location.href = 'login.html';
+    }
+  </script>
+</head>
+<body>
+  <div class="container">
+    <h1>GreenCycle</h1>
+    
+    <button onclick="window.location.href='profile.html'" class="section-button">
+      Perfil
+    </button>
+    
+    <button onclick="window.location.href='store.html'" class="section-button">
+      Loja
+    </button>
+    
+    <button onclick="window.location.href='map.html'" class="section-button">
+      Mapa
+    </button>
+    
+    <button onclick="window.location.href='resgatados.html'" class="section-button">
+      Produtos Resgatados
+    </button>
+    
+    <button onclick="window.location.href='generate_code.html'" class="section-button">
+      Gerador de QR Code
+    </button>
+
+    <!-- Guide button -->
+    <button onclick="startTutorial()" class="section-button guide-button">
+      ❓ Guia do Site
+    </button>
+  </div>
+
+  <script src="https://unpkg.com/intro.js/minified/intro.min.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/tutorial.js"></script>
+  <script src="js/theme.js"></script>
+</body>
+</html>

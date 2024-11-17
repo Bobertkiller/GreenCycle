@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="login-container">
+    <button class="back-button" onclick="window.location.href='welcome.html'">⬅ Voltar</button>
+    
+    <h2>Login</h2>
+    <form id="login-form">
+      <input type="text" id="username" placeholder="Username" required>
+      <input type="password" id="password" placeholder="Password" required>
+      <button type="submit">Entrar</button>
+    </form>
+    <p id="login-error" style="color: red; display: none;">Credenciais inválidas</p>
+    
+    <button class="signup-button" onclick="window.location.href='signup.html'">Criar Conta</button>
+  </div>
+
+  <script src="js/login.js"></script>
+</body>
+</html>

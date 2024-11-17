@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gerador de Código e QR Code</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+</head>
+<body>
+  <div class="container">
+    <!-- Botão de voltar ao hub -->
+    <button class="back-button" onclick="navigateToHub()">⬅ Voltar ao Hub</button>
+    
+    <!-- Título da seção -->
+    <h2 class="section-title">Gerar código para Reciclar</h2>
+    
+    <!-- Área para inserir ou gerar código -->
+    <div class="form-group">
+      <input type="text" id="generated-code" class="form-input" placeholder="Clique em 'Gerar Código' para começar" readonly>
+    </div>
+
+    <!-- Botão para gerar código -->
+    <div class="button-group">
+      <button id="generate-code-btn" class="section-button">Gerar Código Aleatório</button>
+    </div>
+    
+    <!-- Contêiner para o QR Code -->
+    <div id="qr-code-container" class="qr-container">
+      <div id="qr-code"></div>
+    </div>
+  </div>
+
+  <!-- Inclua o JavaScript para gerar o código e o QR code -->
+  <script src="js/QRcode.js"></script>
+  <script src="js/theme.js"></script>
+</body>
+</html>

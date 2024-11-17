@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <title>Perfil</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="profile-container">
+    <!-- Dark Mode Toggle -->
+    <div class="theme-switch-wrapper">
+      <label class="theme-switch" for="checkbox">
+        <input type="checkbox" id="checkbox" />
+        <div class="slider round">
+          <span class="moon">🌙</span>
+          <span class="sun">☀️</span>
+        </div>
+      </label>
+    </div>
+
+    <!-- Ícone de seta para voltar ao hub -->
+    <button class="back-button" onclick="navigateToHub()">⬅ Hub</button>
+
+    <h2>Perfil</h2>
+    <p>Nome: <span id="user-name">Carregando...</span></p>
+
+    <!-- Botão para editar perfil -->
+    <button class="section-button" onclick="showEditForm()">Editar Perfil</button>
+
+    <!-- Formulário de Edição -->
+    <div id="edit-form" style="display: none;">
+      <h3>Editar Perfil</h3>
+      <form id="edit-profile-form">
+        <div>
+          <label for="new-password">Nova Senha:</label>
+          <input type="password" id="new-password" name="new-password" required>
+        </div>
+        <div>
+          <label for="confirm-password">Confirmar Nova Senha:</label>
+          <input type="password" id="confirm-password" name="confirm-password" required>
+        </div>
+        <button type="submit" class="section-button">Salvar Alterações</button>
+        <button type="button" class="section-button" onclick="hideEditForm()">Cancelar</button>
+      </form>
+    </div>
+
+    <!-- Botão Logout -->
+    <button class="section-button" onclick="logout()">Logout</button>
+  </div>
+
+  <script src="js/profile.js"></script>
+  <script src="js/theme.js"></script>
+</body>
+</html>

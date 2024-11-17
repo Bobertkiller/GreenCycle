@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastro</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="login-container">
+    <button class="back-button" onclick="window.location.href='welcome.html'">⬅ Voltar</button>
+    
+    <h2>Cadastro</h2>
+    <form id="signup-form">
+      <input type="text" id="new-username" placeholder="Escolha um Username" required>
+      <input type="password" id="new-password" placeholder="Escolha uma Senha" required>
+      <input type="password" id="confirm-password" placeholder="Confirme sua Senha" required>
+      <p id="password-match-error" style="color: red; display: none;">As senhas não coincidem</p>
+      <button type="submit">Cadastrar</button>
+    </form>
+    <p id="signup-error" style="color: red; display: none;">Erro ao criar conta</p>
+  </div>
+
+  <!-- Success message modal -->
+  <div id="success-modal" class="modal">
+    <div class="modal-content">
+      <h3>Cadastro Realizado com Sucesso! ✅</h3>
+      <p>Sua conta foi criada. Clique no botão abaixo para fazer login.</p>
+      <button onclick="redirectToLogin()" class="modal-button">Ir para Login</button>
+    </div>
+  </div>
+
+  <script src="js/signup.js"></script>
+</body>
+</html>

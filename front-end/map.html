@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mapa de Pontos de Coleta</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@3.2.12/dist/leaflet-routing-machine.css" />
+  <link rel="stylesheet" href="css/map.css">
+  <style>
+    #map {
+      height: 500px;
+      width: 100%;
+      margin-bottom: 10px;
+    }
+    #controls {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  </style>
+</head>
+<body>
+  <div id="map"></div>
+  <div id="controls">
+    <!-- Botão para voltar ao Hub -->
+    <button onclick="navigateToHub()">⬅ Voltar ao Hub</button>
+
+    <!-- Dropdown para escolher o ponto de coleta -->
+    <label for="coleta-select">Escolha um ponto de coleta:</label>
+    <select id="coleta-select"></select>
+    <button onclick="calcularRota()">Calcular Rota</button>
+  </div>
+
+  <!-- Incluindo o Leaflet e o Leaflet Routing Machine -->
+  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+  <script src="https://unpkg.com/leaflet-routing-machine@3.2.12/dist/leaflet-routing-machine.js"></script>
+  <script src="js/theme.js"></script>
+  <script>
+    // Inicializa o mapa centrado em São Paulo
+    const map = L.map('map').setView([-23.5505, -46.6333], 12);
+
+    // Adiciona o tile layer do OpenStreetMap
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 19,
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
+
+    // Dados fictícios dos pontos de coleta
+    const pontosDeColeta = [
+      { nome: "PEV Vila Mariana", coordenadas: [-23.5896, -46.6342] },
+      { nome: "PEV Pinheiros", coordenadas: [-23.5614, -46.7010] },
+      { nome: "PEV Mooca", coordenadas: [-23.5548, -46.6021] },
+      { nome: "PEV Santana", coordenadas: [-23.5022, -46.6244] },
+      { nome: "PEV Butantã", coordenadas: [-23.5707, -46.7129] }
+    ];
+
+    // Adiciona marcadores no mapa para cada ponto de coleta
+    pontosDeColeta.forEach(ponto => {
+      L.marker(ponto.coordenadas)
+        .addTo(map)
+        .bindPopup(`<b>${ponto.nome}</b>`);
+    });
+
+    // Obtém a localização do usuário e define a primeira opção como o ponto mais próximo
+    let userCoords;
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(position => {
+        userCoords = [position.coords.latitude, position.coords.longitude];
+        
+        // Adiciona um marcador para a localização do usuário
+        L.marker(userCoords).addTo(map).bindPopup("Você está aqui").openPopup();
+
+        // Calcula a distância até cada ponto de coleta
+        const distances = pontosDeColeta.map(ponto => {
+          const distance = map.distance(userCoords, ponto.coordenadas);
+          return { ...ponto, distance };
+        });
+
+        // Ordena os pontos pela distância e insere a lista no dropdown
+        const sortedPoints = distances.sort((a, b) => a.distance - b.distance);
+        const select = document.getElementById("coleta-select");
+        sortedPoints.forEach(ponto => {
+          const option = document.createElement("option");
+          option.value = JSON.stringify(ponto.coordenadas); // Usamos o valor como string para fácil recuperação
+          option.text = `${ponto.nome} - ${(ponto.distance / 1000).toFixed(2)} km`;
+          select.appendChild(option);
+        });
+      }, () => {
+        alert("Não foi possível obter sua localização.");
+      });
+    } else {
+      alert("Geolocalização não é suportada pelo seu navegador.");
+    }
+
+    // Função para calcular a rota até o ponto selecionado
+    let currentRoute; // Variável para armazenar a rota atual
+
+    function calcularRota() {
+      const select = document.getElementById("coleta-select");
+      const destino = JSON.parse(select.value); // Converte a string de volta para coordenadas
+      if (userCoords) {
+        // Remove a rota anterior, se existir
+        if (currentRoute) {
+          map.removeControl(currentRoute);
+        }
+    
+        // Adiciona a nova rota
+        currentRoute = L.Routing.control({
+          waypoints: [
+            L.latLng(userCoords),
+            L.latLng(destino)
+          ],
+          routeWhileDragging: true
+        }).addTo(map);
+      } else {
+        alert("Localização do usuário não encontrada.");
+      }
+    }
+    
+    // Função para voltar ao Hub
+    function navigateToHub() {
+      window.location.href = 'index.html';
+    }
+  </script>
+</body>
+</html>
