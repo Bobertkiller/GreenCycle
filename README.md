@@ -4,8 +4,8 @@ GreenCycle é uma plataforma web que incentiva a reciclagem através de um siste
 
 ## Integrantes
 
-Felipe M Barbosa - 10402808.
-Bruno Lauand Ferrão - 10401081
+- Felipe M Barbosa - 10402808
+- Bruno Lauand Ferrão - 10401081
 
 ## Como Executar o Projeto 🚀
 
