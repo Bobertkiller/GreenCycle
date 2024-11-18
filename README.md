@@ -140,6 +140,6 @@ Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para ma
 
 ## Contato 📧
 
-Seu Nome - [@seuTwitter](https://twitter.com/seutwitter) - email@exemplo.com
+Link do Video testando - https://youtu.be/61f21qzAXtA
 
-Link do Projeto: [https://github.com/seu-usuario/greencycle](https://github.com/seu-usuario/greencycle)
+Link do Projeto: [https://github.com/Bobertkiller/GreenCycle](https://github.com/Bobertkiller/GreenCycle)
