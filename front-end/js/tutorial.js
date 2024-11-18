@@ -17,15 +17,15 @@ function startTutorial() {
             },
             {
                 element: '.section-button:nth-child(4)',
-                intro: 'Encontre pontos de coleta próximos a você e calcule rotas para chegar lá onde você pode reciclar para resgatar pontos.'
+                intro: 'Encontre pontos de coleta próximos a você. Calcule a melhor rota para chegar lá, onde você pode reciclar e acumular pontos.'
             },
             {
                 element: '.section-button:nth-child(5)',
-                intro: 'Veja todos os produtos que você já resgatou, clique no produto para revelar seu código de resgate.'
+                intro: 'Veja todos os produtos que você já resgatou, clique no produto para revelar seu código de resgate (insira o código no campo de cupon nos sites das lojas parceiras).'
             },
             {
                 element: '.section-button:nth-child(6)',
-                intro: 'Gere códigos QR para acessar as lixeiras eletrônicas nos pontos de coleta e valide seus pontos.'
+                intro: 'Gere códigos QR para acessar as lixeiras eletrônicas nos pontos de coleta e validar seus pontos.'
             }
         ],
         showProgress: true,
