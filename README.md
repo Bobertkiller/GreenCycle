@@ -2,6 +2,11 @@
 
 GreenCycle é uma plataforma web que incentiva a reciclagem através de um sistema de pontos e recompensas. Os usuários podem acumular pontos ao reciclar materiais e trocá-los por produtos na loja virtual.
 
+## Integrantes
+
+Felipe M Barbosa - 10402808
+Bruno Lauand Ferrão - 10401081
+
 ## Como Executar o Projeto 🚀
 
 ### Método 1: Usando Python para o servidor HTTP
